@@ -1,9 +1,9 @@
-package com.example.demo.service
+package com.pucetec_josepinduisaca.students.service
 
 import com.pucetec_josepinduisaca.students.dto.StudentRequest
 import com.pucetec_josepinduisaca.students.dto.StudentResponse
 import com.pucetec_josepinduisaca.students.entity.Student
-import com.example.demo.repository.StudentRepository
+import com.pucetec_josepinduisaca.students.repository.StudentRepository
 import org.springframework.stereotype.Service
 
 @Service
