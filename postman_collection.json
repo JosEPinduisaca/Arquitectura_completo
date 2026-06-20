@@ -1,0 +1,212 @@
+{
+  "info": {
+    "name": "Students API - CRUD completo",
+    "description": "Colección con los 16 endpoints CRUD para Student, Professor, Subject y Enrollment.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8787" }
+  ],
+  "item": [
+    {
+      "name": "Student",
+      "item": [
+        {
+          "name": "Crear estudiante",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ana Torres\",\n  \"email\": \"ana@puce.edu.ec\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/students", "host": ["{{baseUrl}}"], "path": ["api", "students"] }
+          }
+        },
+        {
+          "name": "Listar estudiantes",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/students", "host": ["{{baseUrl}}"], "path": ["api", "students"] }
+          }
+        },
+        {
+          "name": "Obtener estudiante por ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/students/1", "host": ["{{baseUrl}}"], "path": ["api", "students", "1"] }
+          }
+        },
+        {
+          "name": "Actualizar estudiante",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ana Torres Ruiz\",\n  \"email\": \"ana.torres@puce.edu.ec\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/students/1", "host": ["{{baseUrl}}"], "path": ["api", "students", "1"] }
+          }
+        },
+        {
+          "name": "Eliminar estudiante",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/api/students/1", "host": ["{{baseUrl}}"], "path": ["api", "students", "1"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Professor",
+      "item": [
+        {
+          "name": "Crear profesor",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr. García\",\n  \"email\": \"garcia@puce.edu.ec\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"] }
+          }
+        },
+        {
+          "name": "Listar profesores",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/professors", "host": ["{{baseUrl}}"], "path": ["api", "professors"] }
+          }
+        },
+        {
+          "name": "Obtener profesor por ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/professors/1", "host": ["{{baseUrl}}"], "path": ["api", "professors", "1"] }
+          }
+        },
+        {
+          "name": "Actualizar profesor",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr. García Pérez\",\n  \"email\": \"garcia.perez@puce.edu.ec\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/professors/1", "host": ["{{baseUrl}}"], "path": ["api", "professors", "1"] }
+          }
+        },
+        {
+          "name": "Eliminar profesor",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/api/professors/1", "host": ["{{baseUrl}}"], "path": ["api", "professors", "1"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Subject",
+      "item": [
+        {
+          "name": "Crear materia",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Arquitectura Empresarial\",\n  \"code\": \"AE-101\",\n  \"professorId\": 1\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/subjects", "host": ["{{baseUrl}}"], "path": ["api", "subjects"] }
+          }
+        },
+        {
+          "name": "Listar materias",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/subjects", "host": ["{{baseUrl}}"], "path": ["api", "subjects"] }
+          }
+        },
+        {
+          "name": "Obtener materia por ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/subjects/1", "host": ["{{baseUrl}}"], "path": ["api", "subjects", "1"] }
+          }
+        },
+        {
+          "name": "Actualizar materia",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Arquitectura Empresarial II\",\n  \"code\": \"AE-102\",\n  \"professorId\": 1\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/subjects/1", "host": ["{{baseUrl}}"], "path": ["api", "subjects", "1"] }
+          }
+        },
+        {
+          "name": "Eliminar materia",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/api/subjects/1", "host": ["{{baseUrl}}"], "path": ["api", "subjects", "1"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Enrollment",
+      "item": [
+        {
+          "name": "Crear inscripción",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"studentId\": 1,\n  \"subjectId\": 1\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"] }
+          }
+        },
+        {
+          "name": "Listar inscripciones",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/enrollments", "host": ["{{baseUrl}}"], "path": ["api", "enrollments"] }
+          }
+        },
+        {
+          "name": "Obtener inscripción por ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/enrollments/1", "host": ["{{baseUrl}}"], "path": ["api", "enrollments", "1"] }
+          }
+        },
+        {
+          "name": "Actualizar estado de inscripción",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"APROBADO\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/api/enrollments/1", "host": ["{{baseUrl}}"], "path": ["api", "enrollments", "1"] }
+          }
+        },
+        {
+          "name": "Eliminar inscripción",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/api/enrollments/1", "host": ["{{baseUrl}}"], "path": ["api", "enrollments", "1"] }
+          }
+        }
+      ]
+    }
+  ]
+}

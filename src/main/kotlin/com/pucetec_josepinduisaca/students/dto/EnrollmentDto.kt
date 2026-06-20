@@ -5,6 +5,10 @@ data class EnrollmentRequest(
     val subjectId: Long,
 )
 
+data class EnrollmentStatusRequest(
+    val status: String,
+)
+
 data class EnrollmentResponse(
     val id: Long,
     val createdAt: String,

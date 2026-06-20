@@ -3,6 +3,7 @@ package com.pucetec_josepinduisaca.students.service
 import com.pucetec_josepinduisaca.students.dto.EnrollmentRequest
 import com.pucetec_josepinduisaca.students.dto.EnrollmentResponse
 import com.pucetec_josepinduisaca.students.entity.Enrollment
+import com.pucetec_josepinduisaca.students.exceptions.EnrollmentNotFound
 import com.pucetec_josepinduisaca.students.exceptions.StudentNotFoundException
 import com.pucetec_josepinduisaca.students.exceptions.SubjectNotFoundException
 import com.pucetec_josepinduisaca.students.mappers.toResponse
@@ -34,7 +35,7 @@ class EnrollmentService(
             .orElseThrow { SubjectNotFoundException("Materia no encontrada con ID: ${request.subjectId}") }
 
         val enrollmentToSave = Enrollment(
-            status = "ACTIVE",
+            status = "INSCRITO",
             student = student,
             subject = subject
         )
@@ -52,14 +53,14 @@ class EnrollmentService(
     fun getEnrollmentById(id: Long): EnrollmentResponse {
         logger.info("Getting enrollment with id: $id")
         val enrollment = enrollmentRepository.findById(id)
-            .orElseThrow { RuntimeException("Matrícula no encontrada con ID: $id") }
+            .orElseThrow { EnrollmentNotFound("Matrícula no encontrada con ID: $id") }
         return enrollment.toResponse()
     }
 
     fun updateEnrollmentStatus(id: Long, status: String): EnrollmentResponse {
         logger.info("Updating status of enrollment with id: $id to $status")
         val enrollment = enrollmentRepository.findById(id)
-            .orElseThrow { RuntimeException("Matrícula no encontrada con ID: $id") }
+            .orElseThrow { EnrollmentNotFound("Matrícula no encontrada con ID: $id") }
 
         val updatedEnrollment = Enrollment(
             id = enrollment.id,
@@ -75,7 +76,7 @@ class EnrollmentService(
     fun deleteEnrollment(id: Long) {
         logger.info("Deleting enrollment with id: $id")
         if (!enrollmentRepository.existsById(id)) {
-            throw RuntimeException("Matrícula no encontrada con ID: $id")
+            throw EnrollmentNotFound("Matrícula no encontrada con ID: $id")
         }
         enrollmentRepository.deleteById(id)
     }

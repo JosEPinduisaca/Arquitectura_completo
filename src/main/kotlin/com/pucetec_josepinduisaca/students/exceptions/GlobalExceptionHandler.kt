@@ -17,7 +17,7 @@ class GlobalExceptionHandler {
             source = "StudenService"
         )
         return ResponseEntity
-            .status(HttpStatus.NOT_FOUND)
+            .status(HttpStatus.BAD_REQUEST)
             .body(response)
     }
 
@@ -56,6 +56,19 @@ class GlobalExceptionHandler {
         val response = ExceptionResponse(
             message = e.message ?: "Profesor no encontrado - ERROR",
             source = "StudenService"
+        )
+        return ResponseEntity
+            .status(HttpStatus.NOT_FOUND)
+            .body(response)
+    }
+
+    @ExceptionHandler(EnrollmentNotFound::class)
+    fun handleEnrollmentNotFound(
+        e: EnrollmentNotFound
+    ): ResponseEntity<ExceptionResponse> {
+        val response = ExceptionResponse(
+            message = e.message ?: "Matrícula no encontrada - ERROR",
+            source = "EnrollmentService"
         )
         return ResponseEntity
             .status(HttpStatus.NOT_FOUND)

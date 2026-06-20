@@ -2,6 +2,7 @@ package com.pucetec_josepinduisaca.students.controller
 
 import com.pucetec_josepinduisaca.students.dto.EnrollmentRequest
 import com.pucetec_josepinduisaca.students.dto.EnrollmentResponse
+import com.pucetec_josepinduisaca.students.dto.EnrollmentStatusRequest
 import com.pucetec_josepinduisaca.students.service.EnrollmentService
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
@@ -40,10 +41,10 @@ class EnrollmentController(
     @PutMapping("/api/enrollments/{id}")
     fun updateEnrollmentStatus(
         @PathVariable id: Long,
-        @RequestParam status: String
+        @RequestBody request: EnrollmentStatusRequest
     ): ResponseEntity<EnrollmentResponse> {
         logger.info("Updating enrollment status with id: $id")
-        val response = enrollmentService.updateEnrollmentStatus(id, status)
+        val response = enrollmentService.updateEnrollmentStatus(id, request.status)
         return ResponseEntity.ok(response)
     }
 
