@@ -1,17 +1,21 @@
 package com.pucetec_josepinduisaca.students.entity
 
-import jakarta.persistence.*
+import jakarta.persistence.Table
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
 
 @Entity
 @Table(name = "students")
 class Student(
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    val id: Long = 0L,
 
-    @Column(nullable = false)
-    val name: String,
+    val name: String = "",
 
-    @Column(nullable = false, unique = true)
-    val email: String
+
+    val email: String = ""
 )

@@ -1,10 +1,9 @@
 package com.pucetec_josepinduisaca.students.repository
-import com.pucetec_josepinduisaca.students.entity.Student
+import com.pucetec_josepinduisaca.students.entity.Subject
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
-
 @Repository
-interface StudentRepository: JpaRepository<Student, Long>{
-    fun existsByEmail(email: String): Boolean
+interface SubjectRepository : JpaRepository<Subject, Long>{
+    fun existsByCode(code: String): Boolean
 }
