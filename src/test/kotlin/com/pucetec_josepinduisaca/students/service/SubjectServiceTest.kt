@@ -8,7 +8,7 @@ import com.pucetec_josepinduisaca.students.exceptions.ProfessorNotFound
 import com.pucetec_josepinduisaca.students.exceptions.SubjectNotFoundException
 import com.pucetec_josepinduisaca.students.repository.ProfessorRepository
 import com.pucetec_josepinduisaca.students.repository.SubjectRepository
-import com.pucetec_josepinduisaca.students.service.SubjectService
+//import com.pucetec_josepinduisaca.students.service.SubjectService
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
