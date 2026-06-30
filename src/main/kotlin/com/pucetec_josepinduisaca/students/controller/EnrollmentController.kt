@@ -8,13 +8,14 @@ import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-
+// definicion de la clase e inyeccion de dependencias
 @RestController
 class EnrollmentController(
     val enrollmentService: EnrollmentService
 ) {
+    //registrador de eventos o errores mientras se ejecuta
     private val logger = LoggerFactory.getLogger(EnrollmentController::class.java)
-
+//endpoints o rutas
     @PostMapping("/api/enrollments")
     @ResponseStatus(HttpStatus.CREATED)
     fun createEnrollment(

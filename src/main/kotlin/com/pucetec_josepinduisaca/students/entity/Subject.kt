@@ -22,9 +22,13 @@ class Subject (
 
     val code: String = "",
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)// FetchType.LAZY para optimizar el rendimiento
+    // crea la clave foranea (profesor_id) en la tabla subjects
     val professor: Professor,
 
-    @OneToMany(mappedBy = "subject", cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToMany(mappedBy = "subject",
+        cascade = [CascadeType.ALL],
+        orphanRemoval = true)
+
     val enrollments: MutableList<Enrollment> = mutableListOf(),
 )

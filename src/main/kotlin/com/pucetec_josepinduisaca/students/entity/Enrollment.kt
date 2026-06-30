@@ -23,13 +23,13 @@ class Enrollment (
     val createdAt: LocalDateTime = LocalDateTime.now(),
 
     val status: String = "",
-
+////.......
     @ManyToOne(fetch = FetchType.LAZY)
-    val subject: Subject,
-
+    val subject: Subject, //materias
+///// conexcion, las claves foraneas y genera subject_id
     @ManyToOne(fetch = FetchType.LAZY)
-    val student: Student,
-
+    val student: Student,// estudiantes
+//// conexcion, las claves foraneas y genera  student_id
 
 
     )

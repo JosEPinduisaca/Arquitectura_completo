@@ -19,7 +19,9 @@ class Professor (
 
     val email: String = "",
 
-    @OneToMany(mappedBy = "professor", cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToMany(mappedBy = "professor",
+        cascade = [CascadeType.ALL],
+        orphanRemoval = true)
     val subjects: MutableList<Subject> = mutableListOf(),
 
     )
